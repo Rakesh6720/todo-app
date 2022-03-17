@@ -1,12 +1,14 @@
 import React from "react";
 
-const TodoList: React.FC = () => {
-  // create todos constant
-  const todos = [{ id: "t1", text: "Finish the course" }];
+interface TodoListProps {
+  items: { id: string; text: string }[];
+}
+
+const TodoList = (props: TodoListProps) => {
   return (
     // map over todos array to create copy of array
     <ul>
-      {todos.map((todo) => (
+      {props.items.map((todo) => (
         <li key={todo.id}>{todo.text}</li>
       ))}
     </ul>
